@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="hdpmvn" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="hdpmvn" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="hdpmvn" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="hdpmvn" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hortonworks Maven Builder</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="hdpmvn.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="HDPMVNCtl as ctrl" class="md-padding" ng-cloak>
+    <div>
+        <h1 class="md-title">Enter an address</h1>
+        <div layout="row">
+            <md-input-container>
+                <label>Street Name</label>
+                <input>
+            </md-input-container>
+            <md-input-container>
+                <label>City</label>
+                <input>
+            </md-input-container>
+            <md-input-container>
+                <label>State</label>
+                <md-select ng-model="ctrl.userState">
+                    <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">
+                        {{state.abbrev}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+    </div>
+</div>
+Enter an address
+
+<!--<table>-->
+    <!--<tbody>-->
+    <!--<tr ng-repeat="outlet in outlets" ng-click="toggleOnOff(outlet)">-->
+        <!--<td><img src="static/images/{{outlet.img}}" height="64" width="64"/></td>-->
+        <!--<td>{{outlet.title}}</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="hdpmvn.js"></script>
+</body>
+</html>
