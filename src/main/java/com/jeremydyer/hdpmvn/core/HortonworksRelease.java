@@ -1,7 +1,5 @@
 package com.jeremydyer.hdpmvn.core;
 
-import com.jeremydyer.hdpmvn.VersionUpdate;
-
 import java.util.ArrayList;
 import java.util.Date;
 

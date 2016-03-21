@@ -11,9 +11,6 @@ public class Component {
     private String mvnArtifactId;
     private String mvnVersion;
 
-    @XStreamOmitField
-    private String mvnPropertiesVersion;
-
     public String getMvnGroupId() {
         return mvnGroupId;
     }
@@ -36,13 +33,5 @@ public class Component {
 
     public void setMvnVersion(String mvnVersion) {
         this.mvnVersion = mvnVersion;
-    }
-
-    public String getMvnPropertiesVersion() {
-        return mvnPropertiesVersion;
-    }
-
-    public void setMvnPropertiesVersion(String mvnPropertiesVersion) {
-        this.mvnPropertiesVersion = mvnPropertiesVersion;
     }
 }

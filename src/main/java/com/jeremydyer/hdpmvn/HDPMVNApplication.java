@@ -3,6 +3,7 @@ package com.jeremydyer.hdpmvn;
 import com.codahale.metrics.JmxReporter;
 import com.codahale.metrics.MetricRegistry;
 import com.jeremydyer.hdpmvn.resource.HDPMVNResource;
+import com.jeremydyer.hdpmvn.service.HortonworksReleaseDBService;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
@@ -30,10 +31,12 @@ public class HDPMVNApplication
         //Non-static content requests should be accepted through "/api/*" URL formats
         environment.jersey().setUrlPattern("/api/*");
 
-        //final HDPMVNResource receiptResource = new HDPMVNResource(configuration);
+        //Create the HDP Database instance.
+        HortonworksReleaseDBService DB = new HortonworksReleaseDBService();
+        DB.load();
 
-        //Register the resources with Jersey
-        //environment.jersey().register(receiptResource);
+        HDPMVNResource hdpmvnResource = new HDPMVNResource(DB);
+        environment.jersey().register(hdpmvnResource);
 
         //Enable the JMX metrics.
         MetricRegistry metricsRegistry = new MetricRegistry();

@@ -7,11 +7,14 @@ import com.jeremydyer.hdpmvn.core.old.Dependency;
 import com.jeremydyer.hdpmvn.core.old.Project;
 import com.jeremydyer.hdpmvn.core.old.Version;
 import com.jeremydyer.hdpmvn.service.HortonworksReleaseDBService;
+import com.thoughtworks.xstream.XStream;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -40,7 +43,7 @@ public class Main {
         ArrayList<Project> projects = getProjects(projs);
         System.out.println(projects.size() + " projects were found");
 
-        String interestedVersion = "2.3.4.0-3485";
+        String interestedVersion = "2.4.0.0-169";
         ArrayList<Service> services = new ArrayList<Service>();
         for (Project p : projects) {
             Service service = new Service();
@@ -54,7 +57,7 @@ public class Main {
                         component.setMvnGroupId(d.getGroupId());
                         component.setMvnArtifactId(d.getArtifactId());
                         component.setMvnVersion(v.getRawVersion());
-                        component.setMvnPropertiesVersion("<" + d.getArtifactId() + ".version>" + v.getRawVersion() + "</" + d.getArtifactId() + ".version>");
+                        //component.setMvnPropertiesVersion("<" + d.getArtifactId() + ".version>" + v.getRawVersion() + "</" + d.getArtifactId() + ".version>");
                     }
                 }
                 if (component.getMvnArtifactId() != null) {
@@ -70,17 +73,17 @@ public class Main {
         }
 
         System.out.println("Services: " + services);
-        HDPRelease release = new HDPRelease("2.3.4", services);
+        HDPRelease release = new HDPRelease("2.4.0", services);
         DB.addHDPRelease(release);
         DB.save();
 
 
-//        XStream xStream = new XStream();
-//        File f = new File("/Users/jdyer/Development/github/JavaHDPJumpstart/src/main/resources/hdp-snapshot/hdp.xml");
-//        if (!f.exists()) {
-//            f.createNewFile();
-//        }
-//        xStream.toXML(projects, new FileOutputStream(f));
+        XStream xStream = new XStream();
+        File f = new File("/Users/jdyer/Development/github/HortonworksDeveloperTools/src/main/resources/hdp-snapshot/hdp.xml");
+        if (!f.exists()) {
+            f.createNewFile();
+        }
+        xStream.toXML(projects, new FileOutputStream(f));
     }
 
     private ArrayList<Project> getProjects(Elements elements) {

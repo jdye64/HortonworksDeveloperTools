@@ -16,39 +16,38 @@
 </head>
 <body>
 
-<div ng-controller="HDPMVNCtl as ctrl" class="md-padding" ng-cloak>
-    <div>
-        <h1 class="md-title">Enter an address</h1>
-        <div layout="row">
-            <md-input-container>
-                <label>Street Name</label>
-                <input>
-            </md-input-container>
-            <md-input-container>
-                <label>City</label>
-                <input>
-            </md-input-container>
-            <md-input-container>
-                <label>State</label>
-                <md-select ng-model="ctrl.userState">
-                    <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">
-                        {{state.abbrev}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-        </div>
-    </div>
-</div>
-Enter an address
+<!--<div ng-controller="HDPMVNCtl as ctrl" class="md-padding" ng-cloak>-->
+    <!--<div>-->
+        <!--<h1 class="md-title">Enter an address</h1>-->
+        <!--<div layout="row">-->
+            <!--<md-input-container>-->
+                <!--<label>Street Name</label>-->
+                <!--<input>-->
+            <!--</md-input-container>-->
+            <!--<md-input-container>-->
+                <!--<label>City</label>-->
+                <!--<input>-->
+            <!--</md-input-container>-->
+            <!--<md-input-container>-->
+                <!--<label>State</label>-->
+                <!--<md-select ng-model="ctrl.userState">-->
+                    <!--<md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">-->
+                        <!--{{state.abbrev}}-->
+                    <!--</md-option>-->
+                <!--</md-select>-->
+            <!--</md-input-container>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
-<!--<table>-->
-    <!--<tbody>-->
-    <!--<tr ng-repeat="outlet in outlets" ng-click="toggleOnOff(outlet)">-->
-        <!--<td><img src="static/images/{{outlet.img}}" height="64" width="64"/></td>-->
-        <!--<td>{{outlet.title}}</td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-<!--</table>-->
+<table>
+    <tbody>
+    <tr>
+        <td><a href="/api/v1/mvn/hdp/2.3.4">HDP 2.3.4</a></td> <br />
+        <td><a href="/api/v1/mvn/hdp/2.4.0">HDP 2.4.0</a></td> <br />
+    </tr>
+    </tbody>
+</table>
 
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

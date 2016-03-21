@@ -53,11 +53,11 @@ public class MavenPomBuilderService {
 
 
         Set<String> vs = new HashSet<String>();
-        for (Service s : release.getSubProjServices()) {
-            for (Component c : s.getServiceComponents()) {
-                vs.add(c.getMvnPropertiesVersion());
-            }
-        }
+//        for (Service s : release.getSubProjServices()) {
+//            for (Component c : s.getServiceComponents()) {
+//                vs.add(c.getMvnPropertiesVersion());
+//            }
+//        }
 
         return properties.toString();
     }
