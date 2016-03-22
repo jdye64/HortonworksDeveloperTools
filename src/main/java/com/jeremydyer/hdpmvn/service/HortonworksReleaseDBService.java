@@ -30,8 +30,8 @@ public class HortonworksReleaseDBService {
     public void load() {
         XStream xStream = new XStream();
         try {
-            hdpReleases = (Map<String, HDPRelease>) xStream.fromXML(new File(dbPath + File.pathSeparator + "hdp.xml"));
-            hdfReleases = (Map<String, HDFRelease>) xStream.fromXML(new File(dbPath + File.pathSeparator + "hdf.xml"));
+            hdpReleases = (Map<String, HDPRelease>) xStream.fromXML(new File(dbPath + File.separator + "hdp.xml"));
+            hdfReleases = (Map<String, HDFRelease>) xStream.fromXML(new File(dbPath + File.separator + "hdf.xml"));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -40,8 +40,8 @@ public class HortonworksReleaseDBService {
     public void save() {
         XStream xStream = new XStream();
         try {
-            xStream.toXML(hdpReleases, new FileOutputStream(new File(dbPath + File.pathSeparator + "hdp.xml")));
-            xStream.toXML(hdfReleases, new FileOutputStream(new File(dbPath + File.pathSeparator + "hdf.xml")));
+            xStream.toXML(hdpReleases, new FileOutputStream(new File(dbPath + File.separator + "hdp.xml")));
+            xStream.toXML(hdfReleases, new FileOutputStream(new File(dbPath + File.separator + "hdf.xml")));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
