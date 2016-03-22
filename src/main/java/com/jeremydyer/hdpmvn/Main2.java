@@ -16,14 +16,14 @@ import java.io.IOException;
 public class Main2 {
 
     public static void main(String[] args) throws IOException {
-        HortonworksReleaseDBService db = new HortonworksReleaseDBService();
-        db.load();
-        System.out.println(db);
-
-        MavenPomBuilderService mvn = new MavenPomBuilderService(db);
-        String pom = mvn.buildPomForVersion("2.3.4");
-
-        IOUtils.write(pom.getBytes(), new FileOutputStream(new File("src/main/resources/sample-output/2.3.4-pom.xml")));
+//        HortonworksReleaseDBService db = new HortonworksReleaseDBService();
+//        db.load();
+//        System.out.println(db);
+//
+//        MavenPomBuilderService mvn = new MavenPomBuilderService(db);
+//        String pom = mvn.buildPomForVersion("2.3.4");
+//
+//        IOUtils.write(pom.getBytes(), new FileOutputStream(new File("src/main/resources/sample-output/2.3.4-pom.xml")));
 
 //        XStream xStream = new XStream();
 //        xStream.toXML(pom, new FileOutputStream(new File("src/main/resources/sample-output/2.3.4-pom.xml")));
