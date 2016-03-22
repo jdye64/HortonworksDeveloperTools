@@ -24,8 +24,8 @@ public class HortonworksReleaseDBService {
     public void load() {
         XStream xStream = new XStream();
         try {
-            hdpReleases = (Map<String, HDPRelease>) xStream.fromXML(new File("/Users/jdyer/Development/github/JavaHDPJumpstart/src/main/resources/hdp-snapshot/hdp.xml"));
-            hdfReleases = (Map<String, HDFRelease>) xStream.fromXML(new File("/Users/jdyer/Development/github/JavaHDPJumpstart/src/main/resources/hdp-snapshot/hdf.xml"));
+            hdpReleases = (Map<String, HDPRelease>) xStream.fromXML(new File("src/main/resources/hdp-snapshot/hdp.xml"));
+            hdfReleases = (Map<String, HDFRelease>) xStream.fromXML(new File("src/main/resources/hdp-snapshot/hdf.xml"));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -34,8 +34,8 @@ public class HortonworksReleaseDBService {
     public void save() {
         XStream xStream = new XStream();
         try {
-            xStream.toXML(hdpReleases, new FileOutputStream(new File("/Users/jdyer/Development/github/JavaHDPJumpstart/src/main/resources/hdp-snapshot/hdp.xml")));
-            xStream.toXML(hdfReleases, new FileOutputStream(new File("/Users/jdyer/Development/github/JavaHDPJumpstart/src/main/resources/hdp-snapshot/hdf.xml")));
+            xStream.toXML(hdpReleases, new FileOutputStream(new File("src/main/resources/hdp-snapshot/hdp.xml")));
+            xStream.toXML(hdfReleases, new FileOutputStream(new File("src/main/resources/hdp-snapshot/hdf.xml")));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
