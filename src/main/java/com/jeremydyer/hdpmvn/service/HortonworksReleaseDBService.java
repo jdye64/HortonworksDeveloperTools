@@ -17,6 +17,12 @@ public class HortonworksReleaseDBService {
     private Map<String, HDPRelease> hdpReleases = new HashMap<String, HDPRelease>();
     private Map<String, HDFRelease> hdfReleases = new HashMap<String, HDFRelease>();
 
+    private String dbPath;
+
+    public HortonworksReleaseDBService(String dbPath) {
+        this.dbPath = dbPath;
+    }
+
     public HDPRelease hdpReleaseForVersion(String version) {
         return hdpReleases.get(version);
     }
@@ -24,8 +30,8 @@ public class HortonworksReleaseDBService {
     public void load() {
         XStream xStream = new XStream();
         try {
-            hdpReleases = (Map<String, HDPRelease>) xStream.fromXML(new File("/home/jeremy/HortonworksDeveloperTools/hdp.xml"));
-            hdfReleases = (Map<String, HDFRelease>) xStream.fromXML(new File("/home/jeremy/HortonworksDeveloperTools/hdf.xml"));
+            hdpReleases = (Map<String, HDPRelease>) xStream.fromXML(new File(dbPath + File.pathSeparator + "hdp.xml"));
+            hdfReleases = (Map<String, HDFRelease>) xStream.fromXML(new File(dbPath + File.pathSeparator + "hdf.xml"));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -34,8 +40,8 @@ public class HortonworksReleaseDBService {
     public void save() {
         XStream xStream = new XStream();
         try {
-            xStream.toXML(hdpReleases, new FileOutputStream(new File("/home/jeremy/HortonworksDeveloperTools/hdp.xml")));
-            xStream.toXML(hdfReleases, new FileOutputStream(new File("/home/jeremy/HortonworksDeveloperTools/hdf.xml")));
+            xStream.toXML(hdpReleases, new FileOutputStream(new File(dbPath + File.pathSeparator + "hdp.xml")));
+            xStream.toXML(hdfReleases, new FileOutputStream(new File(dbPath + File.pathSeparator + "hdf.xml")));
         } catch (Exception ex) {
             ex.printStackTrace();
         }

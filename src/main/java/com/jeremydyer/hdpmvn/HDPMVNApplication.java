@@ -32,10 +32,10 @@ public class HDPMVNApplication
         environment.jersey().setUrlPattern("/api/*");
 
         //Create the HDP Database instance.
-        HortonworksReleaseDBService DB = new HortonworksReleaseDBService();
+        HortonworksReleaseDBService DB = new HortonworksReleaseDBService(configuration.getHwxDevTools().dbPath());
         DB.load();
 
-        HDPMVNResource hdpmvnResource = new HDPMVNResource(DB);
+        HDPMVNResource hdpmvnResource = new HDPMVNResource(DB, configuration);
         environment.jersey().register(hdpmvnResource);
 
         //Enable the JMX metrics.

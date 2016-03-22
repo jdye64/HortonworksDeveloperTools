@@ -1,6 +1,7 @@
 package com.jeremydyer.hdpmvn.resource;
 
 import com.codahale.metrics.annotation.Timed;
+import com.jeremydyer.hdpmvn.HDPMVNConfiguration;
 import com.jeremydyer.hdpmvn.service.HortonworksReleaseDBService;
 import com.jeremydyer.hdpmvn.service.MavenPomBuilderService;
 import org.slf4j.Logger;
@@ -22,13 +23,20 @@ public class HDPMVNResource {
     private HortonworksReleaseDBService DB = null;
     private MavenPomBuilderService mvnService = null;
 
-    public HDPMVNResource(HortonworksReleaseDBService bd) {
+    public HDPMVNResource(HortonworksReleaseDBService bd, HDPMVNConfiguration configuration) {
         DB = bd;
         try {
             mvnService = new MavenPomBuilderService(DB);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    @GET
+    @Timed
+    public Response getHDPVersions() {
+        logger.info("Retrieving HDP Versions");
+        return Response.ok().build();
     }
 
     @GET
