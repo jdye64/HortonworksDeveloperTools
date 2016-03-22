@@ -32,6 +32,7 @@ public class HDPMVNApplication
         environment.jersey().setUrlPattern("/api/*");
 
         //Create the HDP Database instance.
+        System.out.println("DB Path: " + configuration.getHwxDevTools().dbPath());
         HortonworksReleaseDBService DB = new HortonworksReleaseDBService(configuration.getHwxDevTools().dbPath());
         DB.load();
 

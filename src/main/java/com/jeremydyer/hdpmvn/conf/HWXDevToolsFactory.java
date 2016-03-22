@@ -14,6 +14,6 @@ public class HWXDevToolsFactory
     private String dbPath;
 
     public String dbPath() {
-        return null;
+        return this.dbPath;
     }
 }

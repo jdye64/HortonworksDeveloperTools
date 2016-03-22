@@ -1,4 +1,5 @@
-hwxdevtools
+hwxDevTools:
+  type: hwxdevtools
   dbPath: /
 
 logging:
