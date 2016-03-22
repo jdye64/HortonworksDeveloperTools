@@ -22,7 +22,7 @@ public class HDPVersionDependencyDB {
         for (Project p : projects) {
             for (Dependency d : p.getDependencies()) {
                 for (Version v : d.getVersions()) {
-                    System.out.println(v);
+                    //
                 }
             }
         }

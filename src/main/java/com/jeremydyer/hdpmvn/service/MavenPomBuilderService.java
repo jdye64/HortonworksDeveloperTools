@@ -40,7 +40,6 @@ public class MavenPomBuilderService {
         //Build the dependencies xml
         HDPRelease release = DB.hdpReleaseForVersion(version);
         String dependenciesXML = buildDependencyXML(release);
-        System.out.println(dependenciesXML);
 
         pom = pom.replace("${{PROPERTIES}}", buildPropertiesXML(release));
         pom = pom.replace("${{DEPENDENCIES}}", dependenciesXML);

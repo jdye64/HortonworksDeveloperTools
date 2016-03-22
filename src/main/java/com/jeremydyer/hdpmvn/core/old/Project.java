@@ -21,7 +21,6 @@ public class Project {
         this.name = element.html().replace("/", "");
         this.baseURL = element.attr("href");
         this.dependencies = getDependencies(element);
-        System.out.println("Parsed Project: " + this.name);
     }
 
     private ArrayList<Dependency> getDependencies(Element element) {
