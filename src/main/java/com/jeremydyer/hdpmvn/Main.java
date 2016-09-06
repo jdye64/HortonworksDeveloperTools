@@ -1,5 +1,13 @@
 package com.jeremydyer.hdpmvn;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import com.jeremydyer.hdpmvn.core.Component;
 import com.jeremydyer.hdpmvn.core.HDPRelease;
 import com.jeremydyer.hdpmvn.core.Service;
@@ -7,16 +15,6 @@ import com.jeremydyer.hdpmvn.core.old.Dependency;
 import com.jeremydyer.hdpmvn.core.old.Project;
 import com.jeremydyer.hdpmvn.core.old.Version;
 import com.jeremydyer.hdpmvn.service.HortonworksReleaseDBService;
-import com.thoughtworks.xstream.XStream;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Created by jdyer on 2/26/16.
@@ -73,7 +71,7 @@ public class Main {
         }
 
         System.out.println("Services: " + services);
-        HDPRelease release = new HDPRelease("2.3.4", services);
+        HDPRelease release = new HDPRelease("2.4.2", services);
         DB.addHDPRelease(release);
         DB.save();
 
