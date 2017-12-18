@@ -41,7 +41,7 @@ public class Main {
         ArrayList<Project> projects = getProjects(projs);
         System.out.println(projects.size() + " projects were found");
 
-        String interestedVersion = "2.5.0.0-1245";
+        String interestedVersion = "2.4.3.0-227";
         ArrayList<Service> services = new ArrayList<Service>();
         for (Project p : projects) {
             Service service = new Service();
@@ -71,7 +71,7 @@ public class Main {
         }
 
         System.out.println("Services: " + services);
-        HDPRelease release = new HDPRelease("2.5.0", services);
+        HDPRelease release = new HDPRelease("2.4.3", services);
         DB.addHDPRelease(release);
         DB.save();
 
